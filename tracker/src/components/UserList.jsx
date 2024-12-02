@@ -124,4 +124,10 @@ const UserList = ({ users, setUsers }) => {
         onClose={() => setIsModalOpen(false)}
         formData={formData}
         handleInputChange={handleInputChange}
-        handleUpdateU
+        handleUpdateUser={handleUpdateUser}
+      />
+    </div>
+  );
+};
+
+export default UserList;

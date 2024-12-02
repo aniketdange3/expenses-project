@@ -5,6 +5,8 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { utils, writeFile } from 'xlsx';
 import AddExpenseModal from '../components/AddExpenseModal';
+import { Tooltip, TooltipProvider } from 'react-tooltip'
+
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
@@ -173,9 +175,10 @@ const Dashboard = () => {
 
       {/* Filter and Button Section with Right Alignment */}
       <div className="flex justify-end space-x-4 ">
-        <button
+       <button
           onClick={() => setIsModalOpen(true)}
           className="bg-gray-200 rounded-full p-3  hover:bg-black hover:text-white"
+          title='Add expense'
           >
           <FaPlus /> 
         </button>
@@ -183,12 +186,14 @@ const Dashboard = () => {
         <button
           onClick={handlePDFDownload}
           className="bg-gray-200 rounded-full p-3  hover:bg-black hover:text-white"
+          title='Download PDF'
           >
           <FaFilePdf /> 
         </button>
 
         <button
           onClick={handleExcelDownload}
+          title='Download Excel'
           className="bg-gray-200 rounded-full p-3  hover:bg-black hover:text-white"
           >
           <FaFileExcel /> 
@@ -196,6 +201,7 @@ const Dashboard = () => {
 
         <button
           onClick={handleLogout}
+          title='Logout'
           className="bg-gray-200 rounded-full p-3  hover:bg-black hover:text-white"
 
           >
