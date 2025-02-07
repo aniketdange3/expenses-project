@@ -94,10 +94,10 @@ const ExpenseList = ({ expenses, setExpenses, fetchData }) => {
               <th className="font-medium px-2 py-3 border border-gray-600">Arrival Date</th>
               <th className="font-medium px-2 py-3 border border-gray-600">Arrival Place</th>
               <th className="font-medium px-2 py-3 border border-gray-600">Mode of Travel</th>
-              <th className="font-medium px-2 py-3 border border-gray-600">Ticket Cost</th>
-              <th className="font-medium px-2 py-3 border border-gray-600">Accommodation Cost</th>
-              <th className="font-medium px-2 py-3 border border-gray-600">Meal Allowances</th>
-              <th className="font-medium px-2 py-3 border border-gray-600">Miscellaneous Cost</th>
+              <th className="font-medium px-2 py-3 border border-gray-600">Ticket Cost (INR)</th>
+              <th className="font-medium px-2 py-3 border border-gray-600">Accommodation Cost (INR)</th>
+              <th className="font-medium px-2 py-3 border border-gray-600">Meal Allowances (INR)</th>
+              <th className="font-medium px-2 py-3 border border-gray-600">Miscellaneous Cost (INR)</th>
               <th className="font-medium px-2 py-3 border border-gray-600">Total Cost</th>
               <th className="font-medium px-2 py-3 border border-gray-600">Actions</th>
             </tr>

@@ -15,7 +15,6 @@ const AddExpenseModal = ({
     miscellaneousCost: 0,
     amount: 0
   },
-  onChange,
   onSubmit,
   editingExpense = null
 }) => {

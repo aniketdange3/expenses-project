@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FiEdit3 } from 'react-icons/fi';
 import { FaFileExcel, FaFilePdf, FaSignOutAlt, FaPlus } from 'react-icons/fa';
 import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import { utils, writeFile } from 'xlsx';
 import AddExpenseModal from '../components/AddExpenseModal';
 import { toast } from 'react-toastify';
@@ -78,8 +79,8 @@ const Dashboard = () => {
 
     doc.autoTable({
       startY: 30,
-      head: userTable.slice(0, 1),
-      body: userTable.slice(1),
+      head: [userTable[0]],
+      body: [userTable[1]],
       theme: 'grid',
       styles: { fontSize: 10, cellPadding: 5, halign: 'center' }
     });
@@ -103,7 +104,7 @@ const Dashboard = () => {
 
     doc.autoTable({
       startY: doc.lastAutoTable.finalY + 10,
-      head: expensesTable.slice(0, 1),
+      head: [expensesTable[0]],
       body: expensesTable.slice(1),
       theme: 'grid',
       styles: { fontSize: 10, cellPadding: 5, halign: 'center' }
@@ -181,17 +182,15 @@ const Dashboard = () => {
     }));
   };
 
-  const handleAddExpenseSubmit = async (e) => {
-    e.preventDefault();
-
-    const ticketCost = parseFloat(newExpense.ticketCost) || 0;
-    const accommodationCost = parseFloat(newExpense.accommodationCost) || 0;
-    const mealAllowances = parseFloat(newExpense.mealAllowances) || 0;
-    const miscellaneousCost = parseFloat(newExpense.miscellaneousCost) || 0;
+  const handleAddExpenseSubmit = async (formData) => {
+    const ticketCost = parseFloat(formData.ticketCost) || 0;
+    const accommodationCost = parseFloat(formData.accommodationCost) || 0;
+    const mealAllowances = parseFloat(formData.mealAllowances) || 0;
+    const miscellaneousCost = parseFloat(formData.miscellaneousCost) || 0;
     const totalCost = ticketCost + accommodationCost + mealAllowances + miscellaneousCost;
 
     const expenseToAdd = {
-      ...newExpense,
+      ...formData,
       amount: totalCost.toFixed(2),
       userId: user.userId
     };
@@ -212,7 +211,18 @@ const Dashboard = () => {
     setIsEditModalOpen(true);
   };
 
-  const handleUpdateExpense = async (updatedExpense) => {
+  const handleUpdateExpense = async (formData) => {
+    const ticketCost = parseFloat(formData.ticketCost) || 0;
+    const accommodationCost = parseFloat(formData.accommodationCost) || 0;
+    const mealAllowances = parseFloat(formData.mealAllowances) || 0;
+    const miscellaneousCost = parseFloat(formData.miscellaneousCost) || 0;
+    const totalCost = ticketCost + accommodationCost + mealAllowances + miscellaneousCost;
+
+    const updatedExpense = {
+      ...formData,
+      amount: totalCost.toFixed(2)
+    };
+
     try {
       const response = await axios.put(`http://localhost:4000/api/expenses/${updatedExpense._id}`, updatedExpense);
       setExpenses((prevExpenses) =>
@@ -354,7 +364,7 @@ const Dashboard = () => {
               [name]: value
             }));
           }}
-          onSubmit={() => handleUpdateExpense(selectedExpense)}
+          onSubmit={handleUpdateExpense}
           mode="edit"
         />
       )}
