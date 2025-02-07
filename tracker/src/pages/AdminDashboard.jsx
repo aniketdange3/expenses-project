@@ -43,7 +43,7 @@ const AdminDashboard = () => {
       <div className="fixed top-6 right-10">
         <button
           onClick={handleLogout}
-          className="text-xl rounded-full border-4 bg-gray-700 text-white p-2 flex items-center hover:bg-black hover:text-white"
+          className="text-xl rounded-full  bg-gray-700 text-white p-3 flex items-center hover:bg-black hover:text-white"
           title="Logout"
         >
           <IoIosLogOut />

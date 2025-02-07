@@ -3,7 +3,6 @@ import axios from 'axios';
 import { FiEdit3 } from 'react-icons/fi';
 import { FaFileExcel, FaFilePdf, FaSignOutAlt, FaPlus } from 'react-icons/fa';
 import jsPDF from 'jspdf';
-import autoTable from 'jspdf-autotable';
 import { utils, writeFile } from 'xlsx';
 import AddExpenseModal from '../components/AddExpenseModal';
 import { toast } from 'react-toastify';

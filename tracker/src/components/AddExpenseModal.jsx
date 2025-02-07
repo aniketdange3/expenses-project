@@ -70,7 +70,7 @@ const AddExpenseModal = ({
           <h2 className="text-2xl mb-4 font-semibold text-white">
             {editingExpense ? "Update Expense" : "Add New Expense"}
           </h2>
-          <form onSubmit={handleFormSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <form id="expense-form" onSubmit={handleFormSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Departure Date */}
             <div>
               <label htmlFor="departureDate" className="block font-medium text-gray-300">

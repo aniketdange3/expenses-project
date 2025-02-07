@@ -74,28 +74,28 @@ const UserList = ({ users, setUsers }) => {
         <table className="min-w-full text-white">
           <thead className="bg-gray-700">
             <tr>
-              <th className="border px-4 py-2 font-normal">ID</th>
-              <th className="border px-4 py-2 font-normal">Name</th>
-              <th className="border px-4 py-2 font-normal">Email</th>
-              <th className="border px-4 py-2 font-normal">Date of Birth</th>
-              <th className="border px-4 py-2 font-normal">Gender</th>
-              <th className="border px-4 py-2 font-normal">Address</th>
-              <th className="border px-4 py-2 font-normal">Phone No.</th>
-              <th className="border px-4 py-2 font-normal">Actions</th>
+              <th className="border border-gray-500 px-4 py-2 font-normal">ID</th>
+              <th className="border border-gray-500 px-4 py-2 font-normal">Name</th>
+              <th className="border border-gray-500 px-4 py-2 font-normal">Email</th>
+              <th className="border border-gray-500 px-4 py-2 font-normal">Date of Birth</th>
+              <th className="border border-gray-500 px-4 py-2 font-normal">Gender</th>
+              <th className="border border-gray-500 px-4 py-2 font-normal">Address</th>
+              <th className="border border-gray-500 px-4 py-2 font-normal">Phone No.</th>
+              <th className="border border-gray-500  px-4 py-2 font-normal">Actions</th>
             </tr>
           </thead>
           <tbody>
             {users.length > 0 ? (
               users.map((user, index) => (
-                <tr key={user._id} className="hover:bg-gray-700 text-center">
-                  <td className="border px-4 py-2">{index + 1}</td>
-                  <td className="border px-4 py-2">{user.name}</td>
-                  <td className="border px-4 py-2">{user.email}</td>
-                  <td className="border px-4 py-2">{new Date(user.dob).toLocaleDateString()}</td>
-                  <td className="border px-4 py-2">{user.gender}</td>
-                  <td className="border px-4 py-2">{user.address}</td>
-                  <td className="border px-4 py-2">{user.phoneNo}</td>
-                  <td className="border px-4 py-2 space-x-4">
+                <tr key={user._id} className=" text-center">
+                  <td className="border-gray-500 border px-4 py-2">{index + 1}</td>
+                  <td className="border-gray-500 border px-4 py-2">{user.name}</td>
+                  <td className="border-gray-500 border px-4 py-2">{user.email}</td>
+                  <td className="border-gray-500 border px-4 py-2">{new Date(user.dob).toLocaleDateString()}</td>
+                  <td className="border-gray-500 border px-4 py-2">{user.gender}</td>
+                  <td className="border-gray-500 border px-4 py-2">{user.address}</td>
+                  <td className="border-gray-500 border px-4 py-2">{user.phoneNo}</td>
+                  <td className="border-gray-500 border px-4 py-2 space-x-4">
                     <button
                       onClick={() => handleEditClick(user)}
                       className="bg-gray-700 rounded-full p-3 hover:bg-black hover:text-white"
