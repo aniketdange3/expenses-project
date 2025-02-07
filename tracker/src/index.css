@@ -2,16 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg{
-    background-image: url('/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    z-index: -1px;
-}
-
-.bg{
-    background: linear-gradient(291deg, rgba(10, 12, 67, 1), rgba(0, 0, 0, 1), rgba(15, 9, 93, 1));
-    -webkit-background: linear-gradient(291deg, rgba(10, 12, 67, 1), rgba(0, 0, 0, 1), rgba(15, 9, 93, 1));
-    -moz-background: linear-gradient(291deg, rgba(10, 12, 67, 1), rgba(0, 0, 0, 1), rgba(15, 9, 93, 1));
-}

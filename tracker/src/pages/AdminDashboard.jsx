@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ExpenseList from '../components/ExpenseList';
-import UserList from '../components/UserList'; 
+import UserList from '../components/UserList';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { IoIosLogOut } from 'react-icons/io';
@@ -11,12 +11,12 @@ const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('expenses');
   const [expenses, setExpenses] = useState([]);
   const [users, setUsers] = useState([]);
-  const navigate = useNavigate(); // Initialize navigate
-  
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem('authToken');
     toast.info('Logged out successfully!');
-    setTimeout(() => navigate('/'), 1500); // Navigate to index page after 1.5 seconds
+    setTimeout(() => navigate('/'), 1500);
   };
 
   useEffect(() => {
@@ -26,8 +26,8 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     try {
       const [expenseResponse, userResponse] = await Promise.all([
-        axios.get('http://localhost:5000/api/expenses'),
-        axios.get('http://localhost:5000/api/auth/users'),
+        axios.get('http://localhost:4000/api/expenses'),
+        axios.get('http://localhost:4000/api/auth/users'),
       ]);
       setExpenses(expenseResponse.data);
       setUsers(userResponse.data);
@@ -38,12 +38,12 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="p-8 min-h-screen">
+    <div className="p-8 min-h-screen bg-gray-900 text-white">
       <ToastContainer position="top-right" autoClose={3000} />
       <div className="fixed top-6 right-10">
         <button
           onClick={handleLogout}
-          className="text-xl rounded-full border-4 bg-gray-200 text-black p-2 flex items-center hover:bg-black hover:text-white"
+          className="text-xl rounded-full border-4 bg-gray-700 text-white p-2 flex items-center hover:bg-black hover:text-white"
           title="Logout"
         >
           <IoIosLogOut />
@@ -55,13 +55,13 @@ const AdminDashboard = () => {
       <div className="flex space-x-4 mb-6">
         <button
           onClick={() => setActiveTab('expenses')}
-          className={`px-4 py-2 font-medium rounded-md ${activeTab === 'expenses' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}`}
+          className={`px-4 py-2 font-medium rounded-md ${activeTab === 'expenses' ? 'bg-gray-800 text-white' : 'bg-gray-700 text-gray-300'}`}
         >
           Expense List
         </button>
         <button
           onClick={() => setActiveTab('users')}
-          className={`px-4 py-2   rounded-md ${activeTab === 'users' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}`}
+          className={`px-4 py-2 font-medium rounded-md ${activeTab === 'users' ? 'bg-gray-800 text-white' : 'bg-gray-700 text-gray-300'}`}
         >
           User List
         </button>
